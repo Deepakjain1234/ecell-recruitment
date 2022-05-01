@@ -31,10 +31,9 @@ var config = {
     let year = document.querySelector('#year1').value;
     let vertical1 = document.querySelector('#vertical1').value;
     let vertical2 = document.querySelector('#vertical2').value;
-    let cv = document.querySelector('#cv').value;
   
     //send message values
-    sendMessage(name, email, contact, scholor, branch, year,vertical1,vertical2,cv);
+    sendMessage(name, email, contact, scholor, branch, year,vertical1,vertical2);
   
     //Show Alert Message(5)
     document.querySelector('.alert').style.display = 'block';
@@ -50,7 +49,7 @@ var config = {
   
   //Send Message to Firebase(4)
   
-  function sendMessage(name, email, contact, scholor, branch, year,vertical1,vertical2,cv) {
+  function sendMessage(name, email, contact, scholor, branch, year,vertical1,vertical2) {
     let newFormMessage = formMessage.push();
     // alert("submit")
     newFormMessage.set({
@@ -62,7 +61,7 @@ var config = {
       year: year,
       vertical1:vertical1,
       vertical2:vertical2,
-      cv:cv
+      
     });
     alert("your application submited");
     window.location.href = "index.html";
