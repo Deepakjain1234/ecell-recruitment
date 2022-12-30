@@ -116,6 +116,7 @@
                         <th>Website</th>
                         <th>year</th>
                         <th>profitable</th>
+                        <th>contact</th>
                     </thead>
                     <tbody id="tbody1">
                 
@@ -164,8 +165,9 @@
                         var Website = CurrentRecord.val().Website;
                         var year = CurrentRecord.val().year;
                         var profitable = CurrentRecord.val().profitable;
+                        var contact = CurrentRecord.val().contact;
                         console.log(name)
-                        AddItemsToTable(founder, about, headquater, profile, revenue,valuation , Website, year,profitable)
+                        AddItemsToTable(founder, about, headquater, profile, revenue,valuation , Website, year,profitable,contact)
                     }
                 );
 
@@ -178,7 +180,7 @@
     window.onload = SelectAllData;
 
     var stdno = 0
-    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,profitable) {
+    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,profitable,contact) {
    
     var tbody = document.getElementById('tbody1');
         var trow = document.createElement('tr');
@@ -192,6 +194,7 @@
         var td8 = document.createElement('td');
         var td9 = document.createElement('td');
         var td10 = document.createElement('td');
+        var td11 = document.createElement('td');
 
         td1.innerHTML = ++stdno;
         td2.innerHTML = name;
@@ -203,6 +206,7 @@
         td8.innerHTML = vertical2;
         td9.innerHTML = cv;
         td10.innerHTML=profitable;
+        td10.innerHTML=contact;
         trow.appendChild(td1);
         trow.appendChild(td2);
         trow.appendChild(td3);
@@ -213,6 +217,7 @@
         trow.appendChild(td8);
         trow.appendChild(td9);
         trow.appendChild(td10);
+        trow.appendChild(td11);
         //   trow.appendChild(td1);
         tbody.appendChild(trow)
    
