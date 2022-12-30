@@ -41,13 +41,13 @@
       <li>
         <a href="Event_Manager.html" class="active">
           <i class='bx bx-box' ></i>
-          <span class="links_name">Event manager</span>
+          <span class="links_name">Startup expo</span>
         </a>
       </li>
       <li>
         <a href="Designer.html">
           <i class='bx bx-list-ul' ></i>
-          <span class="links_name">Designer</span>
+          <span class="links_name">Alumni</span>
         </a>
       </li>
       <li>
@@ -107,14 +107,15 @@
                 <table id="datatable" class="display">
                     <thead>
                         <th>Serial No</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Scholor</th>
-                        <th>Contact</th>
-                        <th>branch</th>
-                        <th>Primary Vertical</th>
-                        <th>Secondry Vertical</th>
-                        <th>cv</th>
+                        <th>founder</th>
+                        <th>about</th>
+                        <th>headquater</th>
+                        <th>profile</th>
+                        <th>revenue</th>
+                        <th>valuation </th>
+                        <th>Website</th>
+                        <th>year</th>
+                        <th>profitable</th>
                     </thead>
                     <tbody id="tbody1">
                 
@@ -150,20 +151,21 @@
 
 
     function SelectAllData() {
-        firebase.database().ref('register').once('value',
+        firebase.database().ref('StartupRegistration').once('value',
             function (AllRecords) {
                 AllRecords.forEach(
                     function (CurrentRecord) {
-                        var name = CurrentRecord.val().name;
-                        var email = CurrentRecord.val().email;
-                        var scholor = CurrentRecord.val().scholor;
-                        var contact = CurrentRecord.val().contact;
-                        var branch = CurrentRecord.val().branch;
-                        var vertical1 = CurrentRecord.val().vertical1;
-                        var vertical2 = CurrentRecord.val().vertical2
-                        var cv = CurrentRecord.val().cv;
+                        var founder = CurrentRecord.val().founder;
+                        var about = CurrentRecord.val().about;
+                        var headquater = CurrentRecord.val().Headquarter;
+                        var profile = CurrentRecord.val().Profile;
+                        var revenue = CurrentRecord.val().Revenue;
+                        var valuation = CurrentRecord.val().Valuation;
+                        var Website = CurrentRecord.val().Website;
+                        var year = CurrentRecord.val().year;
+                        var profitable = CurrentRecord.val().profitable;
                         console.log(name)
-                        AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv)
+                        AddItemsToTable(founder, about, headquater, profile, revenue,valuation , Website, year,profitable)
                     }
                 );
 
@@ -176,9 +178,8 @@
     window.onload = SelectAllData;
 
     var stdno = 0
-    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv) {
-   if(vertical1=="Event Manager" || vertical2=="Event Manager")
-   {
+    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,profitable) {
+   
     var tbody = document.getElementById('tbody1');
         var trow = document.createElement('tr');
         var td1 = document.createElement('td');
@@ -190,6 +191,7 @@
         var td7 = document.createElement('td');
         var td8 = document.createElement('td');
         var td9 = document.createElement('td');
+        var td10 = document.createElement('td');
 
         td1.innerHTML = ++stdno;
         td2.innerHTML = name;
@@ -200,6 +202,7 @@
         td7.innerHTML = vertical1;
         td8.innerHTML = vertical2;
         td9.innerHTML = cv;
+        td10.innerHTML=profitable;
         trow.appendChild(td1);
         trow.appendChild(td2);
         trow.appendChild(td3);
@@ -209,9 +212,10 @@
         trow.appendChild(td7);
         trow.appendChild(td8);
         trow.appendChild(td9);
+        trow.appendChild(td10);
         //   trow.appendChild(td1);
         tbody.appendChild(trow)
-   }
+   
 
     }
 

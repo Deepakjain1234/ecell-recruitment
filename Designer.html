@@ -41,13 +41,13 @@
       <li>
         <a href="Event_Manager.html">
           <i class='bx bx-box' ></i>
-          <span class="links_name">Event manager</span>
+          <span class="links_name">Start-up expo</span>
         </a>
       </li>
       <li>
         <a href="Designer.html" class="active">
           <i class='bx bx-list-ul' ></i>
-          <span class="links_name">Designer</span>
+          <span class="links_name">Alumni</span>
         </a>
       </li>
       <li>
@@ -107,14 +107,16 @@
                 <table id="datatable" class="display">
                     <thead>
                         <th>Serial No</th>
-                        <th>Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email</th>
-                        <th>Scholor</th>
+                        <th>Year</th>
                         <th>Contact</th>
                         <th>branch</th>
-                        <th>Primary Vertical</th>
-                        <th>Secondry Vertical</th>
-                        <th>cv</th>
+                        <th>occupation</th>
+                        <th>messege</th>
+                        <th>special</th>
+                        <th>brief</th>
                     </thead>
                     <tbody id="tbody1">
                 
@@ -150,20 +152,22 @@
 
 
     function SelectAllData() {
-        firebase.database().ref('register').once('value',
+        firebase.database().ref('alumni').once('value',
             function (AllRecords) {
                 AllRecords.forEach(
                     function (CurrentRecord) {
-                        var name = CurrentRecord.val().name;
+                        var fname = CurrentRecord.val().first_name;
+                        var lname = CurrentRecord.val().last_name;
                         var email = CurrentRecord.val().email;
-                        var scholor = CurrentRecord.val().scholor;
+                        var year = CurrentRecord.val().year;
                         var contact = CurrentRecord.val().contact;
                         var branch = CurrentRecord.val().branch;
-                        var vertical1 = CurrentRecord.val().vertical1;
-                        var vertical2 = CurrentRecord.val().vertical2
-                        var cv = CurrentRecord.val().cv;
-                        console.log(name)
-                        AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv)
+                        var occupation = CurrentRecord.val().occupation;
+                        var messege = CurrentRecord.val().messege;
+                        var special = CurrentRecord.val().special;
+                        var brief = CurrentRecord.val().brief_profile;
+                        
+                        AddItemsToTable(fname,lname, email, year, contact, branch, occupation, messege, special,brief)
                     }
                 );
 
@@ -176,9 +180,8 @@
     window.onload = SelectAllData;
 
     var stdno = 0
-    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv) {
-   if(vertical1=="Designer" || vertical2=="Designer")
-   {
+    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,brief) {
+   
     var tbody = document.getElementById('tbody1');
         var trow = document.createElement('tr');
         var td1 = document.createElement('td');
@@ -190,6 +193,7 @@
         var td7 = document.createElement('td');
         var td8 = document.createElement('td');
         var td9 = document.createElement('td');
+        var td10 = document.createElement('td');
 
         td1.innerHTML = ++stdno;
         td2.innerHTML = name;
@@ -200,6 +204,7 @@
         td7.innerHTML = vertical1;
         td8.innerHTML = vertical2;
         td9.innerHTML = cv;
+        td10.innerHTML = brief;
         trow.appendChild(td1);
         trow.appendChild(td2);
         trow.appendChild(td3);
@@ -209,9 +214,10 @@
         trow.appendChild(td7);
         trow.appendChild(td8);
         trow.appendChild(td9);
+        trow.appendChild(td10);
         //   trow.appendChild(td1);
         tbody.appendChild(trow)
-   }
+   
 
     }
 
