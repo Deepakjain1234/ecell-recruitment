@@ -107,8 +107,8 @@
                 <table id="datatable" class="display">
                     <thead>
                         <th>Serial No</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Name</th>
+                        <th>paymentstatus</th>
                         <th>Email</th>
                         <th>Year</th>
                         <th>Contact</th>
@@ -156,8 +156,8 @@
             function (AllRecords) {
                 AllRecords.forEach(
                     function (CurrentRecord) {
-                        var fname = CurrentRecord.val().first_name;
-                        var lname = CurrentRecord.val().last_name;
+                        var fname = CurrentRecord.val().name;
+                        var lname = CurrentRecord.val().status;
                         var email = CurrentRecord.val().email;
                         var year = CurrentRecord.val().year;
                         var contact = CurrentRecord.val().contact;
