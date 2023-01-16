@@ -152,7 +152,7 @@
 
 
     function SelectAllData() {
-        firebase.database().ref('alumni').once('value',
+        firebase.database().ref('alumni-new').once('value',
             function (AllRecords) {
                 AllRecords.forEach(
                     function (CurrentRecord) {
