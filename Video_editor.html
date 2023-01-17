@@ -150,7 +150,7 @@
 
 
     function SelectAllData() {
-        firebase.database().ref('register').once('value',
+        firebase.database().ref('ca').once('value',
             function (AllRecords) {
                 AllRecords.forEach(
                     function (CurrentRecord) {
