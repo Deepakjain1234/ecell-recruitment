@@ -154,16 +154,15 @@
             function (AllRecords) {
                 AllRecords.forEach(
                     function (CurrentRecord) {
-                        var name = CurrentRecord.val().name;
-                        var email = CurrentRecord.val().email;
-                        var scholor = CurrentRecord.val().scholor;
-                        var contact = CurrentRecord.val().contact;
-                        var branch = CurrentRecord.val().branch;
-                        var vertical1 = CurrentRecord.val().vertical1;
-                        var vertical2 = CurrentRecord.val().vertical2
-                        var cv = CurrentRecord.val().cv;
+                        var name = CurrentRecord.val().first_name;
+                        var email = CurrentRecord.val().last_name;
+                        var scholor = CurrentRecord.val().year;
+                        var contact = CurrentRecord.val().email;
+                        var branch = CurrentRecord.val().contact;
+                        var vertical1 = CurrentRecord.val().occupation;
+                        
                         console.log(name)
-                        AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv)
+                        AddItemsToTable(name, email, scholor, contact, branch, vertical1)
                     }
                 );
 
@@ -176,9 +175,8 @@
     window.onload = SelectAllData;
 
     var stdno = 0
-    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv) {
-   if(vertical1=="Video editor" || vertical2=="Video editor")
-   {
+    function AddItemsToTable(name, email, scholor, contact, branch, vertical1) {
+   
     var tbody = document.getElementById('tbody1');
         var trow = document.createElement('tr');
         var td1 = document.createElement('td');
@@ -188,8 +186,7 @@
         var td5 = document.createElement('td');
         var td6 = document.createElement('td');
         var td7 = document.createElement('td');
-        var td8 = document.createElement('td');
-        var td9 = document.createElement('td');
+        
 
         td1.innerHTML = ++stdno;
         td2.innerHTML = name;
@@ -197,9 +194,8 @@
         td4.innerHTML = scholor;
         td5.innerHTML = contact;
         td6.innerHTML = branch;
-        td7.innerHTML = vertical1;
-        td8.innerHTML = vertical2;
-        td9.innerHTML = cv;
+        td7.innerHTML = vertical1 
+        
         trow.appendChild(td1);
         trow.appendChild(td2);
         trow.appendChild(td3);
@@ -207,11 +203,11 @@
         trow.appendChild(td5);
         trow.appendChild(td6);
         trow.appendChild(td7);
-        trow.appendChild(td8);
-        trow.appendChild(td9);
+        
+        
         //   trow.appendChild(td1);
         tbody.appendChild(trow)
-   }
+   
 
     }
 
