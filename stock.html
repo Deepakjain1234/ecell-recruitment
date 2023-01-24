@@ -41,25 +41,25 @@
       <li>
         <a href="Event_Manager.html">
           <i class='bx bx-box' ></i>
-          <span class="links_name">Startup</span>
+          <span class="links_name">Event manager</span>
         </a>
       </li>
       <li>
         <a href="Designer.html">
           <i class='bx bx-list-ul' ></i>
-          <span class="links_name">alumni</span>
+          <span class="links_name">Designer</span>
         </a>
       </li>
       <li>
-        <a href="Content_creator.html" class="active">
+        <a href="Content_creator.html">
           <i class='bx bx-list-ul' ></i>
-          <span class="links_name">bplan</span>
+          <span class="links_name">content creator</span>
         </a>
       </li>
       <li>
-        <a href="Public_relation.html" >
+        <a href="Public_relation.html">
           <i class='bx bx-list-ul' ></i>
-          <span class="links_name">Hackathon</span>
+          <span class="links_name">Public relation</span>
         </a>
       </li>
       <li>
@@ -75,7 +75,7 @@
         </a>
       </li>
       <li>
-        <a href="Web_developer.html">
+        <a href="Web_developer.html" class="active">
           <i class='bx bx-list-ul' ></i>
           <span class="links_name">web developer</span>
         </a>
@@ -107,22 +107,14 @@
                 <table id="datatable" class="display">
                     <thead>
                         <th>Serial No</th>
-                        <th>Team</th>
-                        <th>name1</th>
-                        <th>email1</th>
-                        <th>Contact1</th>
-                        <th>name2</th>
-                        <th>email2</th>
-                        <th>Contact2</th>
-                        <th>name3</th>
-                        <th>email3</th>
-                        <th>Contact3</th>
-                        <th>name4</th>
-                        <th>email4</th>
-                        <th>Contact4</th>
-                        <th>address</th>
-                        <th>institute</th>
-                        
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>year</th>
+                        <th>Contact</th>
+                        <th>branch</th>
+                        <!-- <th>Primary Vertical</th>
+                        <th>Secondry Vertical</th>
+                        <th>cv</th> -->
                     </thead>
                     <tbody id="tbody1">
                 
@@ -158,28 +150,19 @@
 
 
     function SelectAllData() {
-        firebase.database().ref('B-plan').once('value',
+        firebase.database().ref('stock-manit').once('value',
             function (AllRecords) {
                 AllRecords.forEach(
                     function (CurrentRecord) {
-                        var name = CurrentRecord.val().Team;
-                        var email = CurrentRecord.val().name1;
-                        var scholor = CurrentRecord.val().email1;
-                        var contact = CurrentRecord.val().contact1;
-                        var branch = CurrentRecord.val().name2;
-                        var vertical1 = CurrentRecord.val().email2;
-                        var vertical2 = CurrentRecord.val().contact2;
-                        var cv = CurrentRecord.val().name3;
-                        var scholor1 = CurrentRecord.val().email3;
-                        var contact1 = CurrentRecord.val().contact3;
-                        var branch1 = CurrentRecord.val().name4;
-                        var vertical11 = CurrentRecord.val().email4;
-                        var vertical21 = CurrentRecord.val().contact4;
-                        var cv1 = CurrentRecord.val().address;
-                        var cv2= CurrentRecord.val().institute;
-                        var cv2= CurrentRecord.val().institute;
+                        var name = CurrentRecord.val().name;
+                        var email = CurrentRecord.val().email;
+                        var year = CurrentRecord.val().year;
+                        var contact = CurrentRecord.val().contact;
+                        var branch = CurrentRecord.val().branch;
+                        
+                        // var cv = CurrentRecord.val().cv;
                         console.log(name)
-                        AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,scholor1, contact1, branch1, vertical11, vertical21, cv1,cv2)
+                        AddItemsToTable(name,year, email,  contact, branch)
                     }
                 );
 
@@ -192,7 +175,7 @@
     window.onload = SelectAllData;
 
     var stdno = 0
-    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,scholor1, contact1, branch1, vertical11, vertical21, cv1,cv2) {
+    function AddItemsToTable(name,year, email, contact, branch) {
    
     var tbody = document.getElementById('tbody1');
         var trow = document.createElement('tr');
@@ -205,31 +188,16 @@
         var td7 = document.createElement('td');
         var td8 = document.createElement('td');
         var td9 = document.createElement('td');
-        var td10 = document.createElement('td');
-        var td11 = document.createElement('td');
-        var td12 = document.createElement('td');
-        var td13 = document.createElement('td');
-        var td14 = document.createElement('td');
-        var td15 = document.createElement('td');
-        var td16 = document.createElement('td');
-        
 
         td1.innerHTML = ++stdno;
         td2.innerHTML = name;
         td3.innerHTML = email;
-        td4.innerHTML = scholor;
+        td4.innerHTML = year;
         td5.innerHTML = contact;
         td6.innerHTML = branch;
-        td7.innerHTML = vertical1;
-        td8.innerHTML = vertical2;
-        td9.innerHTML = cv;
-        td10.innerHTML = scholor1;
-        td11.innerHTML = contact1;
-        td12.innerHTML = branch1;
-        td13.innerHTML = vertical11;
-        td14.innerHTML = vertical21;
-        td15.innerHTML = cv1;
-        td16.innerHTML = cv2;
+        // td7.innerHTML = vertical1;
+        // td8.innerHTML = vertical2;
+        // td9.innerHTML = cv;
         trow.appendChild(td1);
         trow.appendChild(td2);
         trow.appendChild(td3);
@@ -239,18 +207,11 @@
         trow.appendChild(td7);
         trow.appendChild(td8);
         trow.appendChild(td9);
-        trow.appendChild(td10);
-        trow.appendChild(td11);
-        trow.appendChild(td12);
-        trow.appendChild(td13);
-        trow.appendChild(td14);
-        trow.appendChild(td15);
-        trow.appendChild(td16);
         //   trow.appendChild(td1);
         tbody.appendChild(trow)
-   
+   }
 
-    }
+    
 
 
 </script>

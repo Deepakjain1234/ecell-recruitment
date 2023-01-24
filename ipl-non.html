@@ -158,7 +158,7 @@
 
 
     function SelectAllData() {
-        firebase.database().ref('B-plan').once('value',
+        firebase.database().ref('ipl-nonmanit').once('value',
             function (AllRecords) {
                 AllRecords.forEach(
                     function (CurrentRecord) {
