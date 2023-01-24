@@ -114,9 +114,10 @@
                         <th>Contact</th>
                         <th>branch</th>
                         <th>occupation</th>
-                        <th>messege</th>
-                        <th>amount</th>
+                        <th>college_achivement</th>
+                        <th>size</th>
                         <th>brief</th>
+                        <th>accommodation</th>
                     </thead>
                     <tbody id="tbody1">
                 
@@ -152,22 +153,25 @@
 
 
     function SelectAllData() {
-        firebase.database().ref('alumni').once('value',
+        firebase.database().ref('alumni-new').once('value',
             function (AllRecords) {
                 AllRecords.forEach(
                     function (CurrentRecord) {
-                        var fname = CurrentRecord.val().name;
-                        var lname = CurrentRecord.val().status;
+                        var fname = CurrentRecord.val().first_name;
+                        var lname = CurrentRecord.val().Transaction;
                         var email = CurrentRecord.val().email;
                         var year = CurrentRecord.val().year;
                         var contact = CurrentRecord.val().contact;
                         var branch = CurrentRecord.val().branch;
                         var occupation = CurrentRecord.val().occupation;
-                        var messege = CurrentRecord.val().messege;
-                        var special = CurrentRecord.val().amount;
+                        var messege = CurrentRecord.val().college_achivement;
+                        var special = CurrentRecord.val().size;
                         var brief = CurrentRecord.val().brief_profile;
+                        var accommodation = CurrentRecord.val().accommodation;
+                      
+                      
                         
-                        AddItemsToTable(fname,lname, email, year, contact, branch, occupation, messege, special,brief)
+                        AddItemsToTable(fname,lname, email, year, contact, branch, occupation, messege, special,brief,accommodation)
                     }
                 );
 
@@ -180,7 +184,7 @@
     window.onload = SelectAllData;
 
     var stdno = 0
-    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,brief) {
+    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,brief,accommodation,a) {
    
     var tbody = document.getElementById('tbody1');
         var trow = document.createElement('tr');
@@ -194,6 +198,8 @@
         var td8 = document.createElement('td');
         var td9 = document.createElement('td');
         var td10 = document.createElement('td');
+        var td11 = document.createElement('td');
+        var td12 = document.createElement('td');
 
         td1.innerHTML = ++stdno;
         td2.innerHTML = name;
@@ -205,6 +211,8 @@
         td8.innerHTML = vertical2;
         td9.innerHTML = cv;
         td10.innerHTML = brief;
+        td11.innerHTML = accommodation;
+        td12.innerHTML = a;
         trow.appendChild(td1);
         trow.appendChild(td2);
         trow.appendChild(td3);
@@ -215,6 +223,8 @@
         trow.appendChild(td8);
         trow.appendChild(td9);
         trow.appendChild(td10);
+        trow.appendChild(td11);
+        trow.appendChild(td12);
         //   trow.appendChild(td1);
         tbody.appendChild(trow)
    
