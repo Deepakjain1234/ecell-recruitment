@@ -174,15 +174,24 @@
                         <th>name1</th>
                         <th>email1</th>
                         <th>Contact1</th>
+                          <th>Github1</th>
+                        <th>other1</th>
+
                         <th>name2</th>
                         <th>email2</th>
                         <th>Contact2</th>
+<th>Github2</th>
+                        <th>other2</th>
                         <th>name3</th>
                         <th>email3</th>
                         <th>Contact3</th>
+<th>Github3</th>
+                        <th>other3</th>
                         <th>name4</th>
                         <th>email4</th>
                         <th>Contact4</th>
+<th>Github4</th>
+                        <th>other4</th>
                         <th>address</th>
                         <th>institute</th>
                         
@@ -240,8 +249,16 @@
                         var vertical21 = CurrentRecord.val().contact4;
                         var cv1 = CurrentRecord.val().address;
                         var cv2= CurrentRecord.val().institute;
+                        var g1 = CurrentRecord.val().github1;
+                        var o1 = CurrentRecord.val().profile1;
+                        var g2 = CurrentRecord.val().github2;
+                        var o2 = CurrentRecord.val().profile2;
+                        var g3 = CurrentRecord.val().github3;
+                        var o3 = CurrentRecord.val().profile3;
+                        var g4 = CurrentRecord.val().github4;
+                        var o4= CurrentRecord.val().profile4
                         console.log(name)
-                        AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,scholor1, contact1, branch1, vertical11, vertical21, cv1,cv2)
+                        AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,scholor1, contact1, branch1, vertical11, vertical21, cv1,cv2,g1,o1,g2,o2,g3,o3,g4,o4)
                     }
                 );
 
@@ -254,7 +271,7 @@
     window.onload = SelectAllData;
 
     var stdno = 0
-    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,scholor1, contact1, branch1, vertical11, vertical21, cv1,cv2) {
+    function AddItemsToTable(name, email, scholor, contact, branch, vertical1, vertical2, cv,scholor1, contact1, branch1, vertical11, vertical21, cv1,cv2,cv1,cv2,g1,o1,g2,o2,g3,o3,g4,o4  ) {
    
     var tbody = document.getElementById('tbody1');
         var trow = document.createElement('tr');
@@ -274,7 +291,15 @@
         var td14 = document.createElement('td');
         var td15 = document.createElement('td');
         var td16 = document.createElement('td');
-        
+         
+        var td17 = document.createElement('td');
+        var td18 = document.createElement('td');
+        var td19 = document.createElement('td');
+        var td20 = document.createElement('td');
+        var td21 = document.createElement('td');
+        var td22 = document.createElement('td');
+        var td23 = document.createElement('td');
+        var td24 = document.createElement('td');
 
         td1.innerHTML = ++stdno;
         td2.innerHTML = name;
@@ -292,6 +317,15 @@
         td14.innerHTML = vertical21;
         td15.innerHTML = cv1;
         td16.innerHTML = cv2;
+        td17.innerHTML = g1;
+        td18.innerHTML = o1;
+        
+        td19.innerHTML = g2;
+        td20.innerHTML = o2;
+        td21.innerHTML = g3;
+        td22.innerHTML = o3;
+        td23.innerHTML = g4;
+        td24.innerHTML = o4;
         trow.appendChild(td1);
         trow.appendChild(td2);
         trow.appendChild(td3);
@@ -308,6 +342,14 @@
         trow.appendChild(td14);
         trow.appendChild(td15);
         trow.appendChild(td16);
+        trow.appendChild(td17);
+        trow.appendChild(td18);
+        trow.appendChild(td19);
+        trow.appendChild(td20);
+        trow.appendChild(td21);
+        trow.appendChild(td22);
+        trow.appendChild(td23);
+        trow.appendChild(td24);
         //   trow.appendChild(td1);
         tbody.appendChild(trow)
    
